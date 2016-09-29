@@ -4,6 +4,6 @@
 Plataforma de controle de vacinas.
 
 ### Membros do Desenvolvimento
-Claudio Godoy
-Edgar Massaaki Yonemura
-Kaue Zatarin
+* Claudio Godoy
+* Edgar Massaaki Yonemura
+* Kaue Zatarin
