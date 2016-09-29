@@ -1,0 +1,13 @@
+{
+	"autoload": {
+		"files": ["Framework/helpers.php"],
+		"psr-4": {
+			"App\\": "app/",
+			"Framework\\": "Framework/"
+		}
+	},
+	"require": {
+		"symfony/var-dumper": "^3.1",
+		"pimple/pimple": "^3.0"
+	}
+}

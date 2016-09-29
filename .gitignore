@@ -1,0 +1,6 @@
+# Ver o link abaixo para mais informações:
+# https://help.github.com/articles/ignoring-files
+
+/vendor
+config.php
+composer.lock
