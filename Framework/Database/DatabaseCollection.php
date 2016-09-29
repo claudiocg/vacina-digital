@@ -22,7 +22,7 @@ class DatabaseCollection
 	}
 	public function first()
 	{
-		if (is_array($this->all))
+		if (is_array($this->all) && $this->all != [])
 			return $this->all[0];
 		return $this->all;
 	}
