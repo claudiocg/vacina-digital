@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `vacina`.`usuario` (
   `tipo` TINYINT(1) NOT NULL COMMENT 'identifica se a conta pertence a um posto de saude, agente de saude ou cidadão',
   `perm` TINYINT(1) NOT NULL COMMENT 'representa o nivel de permissão da conta, variando de 0 a 3, 0 admin, 1 posto de saude, 2 agente de saude e 3 usuario',
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `username_UNIQUE` (`username` ASC))
+  UNIQUE INDEX `usuario_UNIQUE` (`usuario` ASC))
 ENGINE = InnoDB;
 
 
