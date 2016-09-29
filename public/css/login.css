@@ -1,0 +1,10 @@
+#login-panel {
+  background-color: #FFF;
+  width: 450px;
+  padding: 0 2% 1%;
+  margin-left: -225px;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+}
