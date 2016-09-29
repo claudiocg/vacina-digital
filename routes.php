@@ -8,3 +8,5 @@ $router->get('postos/{estado}/{cidade}', 'PostoController@index');
 $router->get('admin', 'Admin\LoginController@index');
 $router->get('admin/login', 'Admin\LoginController@index');
 $router->post('admin/login', 'Admin\LoginController@login');
+
+$router->get('admin/painel', 'Admin\PainelController@index');
