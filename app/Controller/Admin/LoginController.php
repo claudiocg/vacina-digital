@@ -15,11 +15,19 @@ class LoginController
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
-        $usuario = Usuario::select(['id','senha'])->where('usuario', $email)->get()->first();
+        $usuario = Usuario::select(['id','usuario','senha'])
+            ->where('usuario', $email)->get()->first();
 
-        if ($usuario)
-            if (crypt($senha, $usuario->senha) == $usuario->senha)
+        if ($usuario) {
+            if (crypt($senha, $usuario->senha) == $usuario->senha) {
+                $_SESSION['usuario'] = [
+                    'id' => $usuario->id,
+                    'nome' => $usuario->usuario
+                ];
+
                 return redirect("admin.painel");
+            }
+        }
 
         return view('admin.login');
     }
