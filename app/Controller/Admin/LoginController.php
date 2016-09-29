@@ -19,7 +19,7 @@ class LoginController
 
         if ($usuario)
             if (crypt($senha, $usuario->senha) == $usuario->senha)
-                return header("Location: /admin/painel");
+                return redirect("admin.painel");
 
         return view('admin.login');
     }

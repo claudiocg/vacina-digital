@@ -36,4 +36,10 @@ class View
         if ($type == 'js')
             return "<script src='/assets/{$this->formatPath($asset)}.min.js'></script>";
     }
+    public function redirect(string $to)
+    {
+        $to = $this->formatPath($to);
+
+        return header("Location: /{$to}");
+    }
 }

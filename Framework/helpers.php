@@ -8,7 +8,12 @@ if (!function_exists('view')) {
         return Application::container('view')->make($view, $data);
     }
 }
-
+if (!function_exists('redirect')) {
+    function redirect(string $to)
+    {
+        return Application::container('view')->redirect($to);
+    }
+}
 if (!function_exists('template')) {
     function template(string $file)
     {
