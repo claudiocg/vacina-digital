@@ -8,6 +8,7 @@
 	},
 	"require": {
 		"symfony/var-dumper": "^3.1",
-		"pimple/pimple": "^3.0"
+		"pimple/pimple": "^3.0",
+		"symfony/debug": "^3.1"
 	}
 }
