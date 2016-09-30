@@ -2,8 +2,6 @@
 
 namespace Framework\Routing;
 
-use Framework\Request;
-
 class Route
 {
 	protected $method;
