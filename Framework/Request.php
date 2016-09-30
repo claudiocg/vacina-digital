@@ -23,4 +23,11 @@ class Request
 
         return $this->request->getMethod();
 	}
+    public function getRequest(string $attr)
+    {
+        if ($this->request->isMethod('POST')) {
+            return $this->request->request->get($attr);
+        }
+        return $this->request->query->get($attr);
+    }
 }

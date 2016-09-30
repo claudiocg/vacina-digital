@@ -45,16 +45,8 @@ if (!function_exists('container')) {
     }
 }
 if (!function_exists('request')) {
-    /**
-     * Get all request
-     * @param  mixed $model
-     * @return mixed
-     */
-    function request($model)
+    function request(string $attr)
     {
-        foreach ($_POST as $key => $value) {
-            $model->{$key} = $value;
-        };
-        return $model;
+        return Application::container('request')->getRequest($attr);
     }
 }

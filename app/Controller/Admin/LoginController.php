@@ -12,8 +12,8 @@ class LoginController
     }
     public function login()
     {
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
+        $email = request('email');
+        $senha = request('senha');
 
         $usuario = Usuario::select(['id','usuario','senha'])
             ->where('usuario', $email)->get()->first();
@@ -24,7 +24,6 @@ class LoginController
                     'id' => $usuario->id,
                     'nome' => $usuario->usuario
                 ];
-
                 return redirect("admin.painel");
             }
         }
