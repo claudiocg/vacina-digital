@@ -2,7 +2,6 @@
 
 namespace Framework\Routing;
 
-use Framework\Request;
 use Framework\Application;
 
 class Route
