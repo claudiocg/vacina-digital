@@ -2,7 +2,6 @@
 
 namespace Framework\Routing;
 
-use Framework\Request;
 use Exception;
 
 class Router
@@ -60,7 +59,7 @@ class Router
      */
     public function direct($uri, $method)
     {
-        $path = Request::uri() == '/' ? '/' : '/'.Request::uri();
+        $path = $uri == '/' ? '/' : "/{$uri}";
         // Find the first ocurrence from routes
         foreach ($this->routes->routes[$method] as $key => $route) {
             if (preg_match($route->getRegex(), $path) == true) {
