@@ -82,7 +82,7 @@ class Router
         $matches = $this->unsetNoMatchesKey($matches);
 
         foreach ($matches as $key => $value) {
-            $_GET[$key] = $value;
+            container('request')->request->query->set($key, $value);
         }
     }
     private function unsetNoMatchesKey(array $matches = NULL)

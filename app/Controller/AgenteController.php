@@ -41,7 +41,7 @@ class AgenteController
     }
     public function show()
     {
-        $agente = Agente::find($_GET['id'])->usuario();
+        $agente = Agente::find(request('id'))->usuario();
 
         return view('agente.show', ['agente' => $agente]);
     }
