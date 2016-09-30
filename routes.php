@@ -10,3 +10,5 @@ $router->get('admin/login', 'Admin\LoginController@index');
 $router->post('admin/login', 'Admin\LoginController@login');
 
 $router->get('admin/painel', 'Admin\PainelController@index');
+
+$router->get('agentes/{id}', 'AgenteController@show');
