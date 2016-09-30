@@ -10,4 +10,4 @@ Plataforma de controle de vacinas.
 
 ### Utilizar
 * PHP 7
-* MySql 5.6
+* MySql 5.7
