@@ -7,3 +7,7 @@ Plataforma de controle de vacinas.
 * Claudio Godoy
 * Edgar Massaaki Yonemura
 * Kaue Zatarin
+
+### Utilizar
+* PHP 7
+* MySql 5.6
