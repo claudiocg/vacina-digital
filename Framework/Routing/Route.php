@@ -2,6 +2,9 @@
 
 namespace Framework\Routing;
 
+use Framework\Request;
+use Framework\Application;
+
 class Route
 {
 	protected $method;
@@ -24,9 +27,9 @@ class Route
 		$this->uri = $uri;
 		$this->controller = $controller;
 
-		if (container('request')->method() == $this->method) {
+		if (Application::container('request')->getMethod() == $this->method) {
 			$this->request = $this->matches(
-				$this, container('request')->method()
+				$this, Application::container('request')->getMethod()
 			);
 		}
 	}

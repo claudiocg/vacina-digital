@@ -2,7 +2,7 @@
 
 namespace Framework;
 
-use Framework\Request;
+use Symfony\Component\HttpFoundation\Request;
 use Framework\Routing\Router;
 use Framework\Database\QueryBuilder;
 use Framework\Database\Connection;
@@ -28,7 +28,7 @@ class Application
             'connection',
             new Connection($container->get('config')['database'])
         );
-        $container->register('request', new Request()); 
+        $container->register('request', Request::createFromGlobals()); 
         $container->register('view', new View()); 
 
         $this->debug($container->get('config')['env']);
@@ -50,9 +50,11 @@ class Application
     }
     public function run()
     {
-        $request = new Request();
+        $request = $this->container('request');
 
         return Router::load('routes.php')
-            ->direct($request->uri(), $request->method());
+            ->direct(
+                trim($request->getRequestUri(),'/'), 
+                $request->getMethod());
     }
 }
