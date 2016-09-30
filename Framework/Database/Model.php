@@ -2,7 +2,6 @@
 
 namespace Framework\Database;
 
-use Framework\Application;
 use Framework\Database\QueryBuilder;
 use ReflectionClass;
 use ReflectionProperty;
@@ -42,7 +41,7 @@ abstract class Model
 	 */
 	private function connection()
 	{
-		return Application::container('connection');
+		return container('connection');
 	}
 	public function table()
 	{

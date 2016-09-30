@@ -3,7 +3,6 @@
 namespace Framework\Routing;
 
 use Framework\Request;
-use Framework\Application;
 
 class Route
 {
@@ -27,9 +26,9 @@ class Route
 		$this->uri = $uri;
 		$this->controller = $controller;
 
-		if (Application::container('request')->method() == $this->method) {
+		if (container('request')->method() == $this->method) {
 			$this->request = $this->matches(
-				$this, Application::container('request')->method()
+				$this, container('request')->method()
 			);
 		}
 	}

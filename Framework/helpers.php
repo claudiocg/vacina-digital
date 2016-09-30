@@ -38,7 +38,12 @@ if (!function_exists('dd')) {
         die(dump($value));
     }
 }
-
+if (!function_exists('container')) {
+    function container(string $service)
+    {
+        return Application::container($service);
+    }
+}
 if (!function_exists('request')) {
     /**
      * Get all request
