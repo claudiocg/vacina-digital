@@ -27,9 +27,9 @@ class Route
 		$this->uri = $uri;
 		$this->controller = $controller;
 
-		if (Application::container('request')->method() == $this->method) {
+		if (Application::container('request')->getMethod() == $this->method) {
 			$this->request = $this->matches(
-				$this, Application::container('request')->method()
+				$this, Application::container('request')->getMethod()
 			);
 		}
 	}
