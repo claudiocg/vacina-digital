@@ -28,12 +28,10 @@ class Application
             'connection',
             new Connection($container->get('config')['database'])
         );
+        $container->register('request', new Request()); 
         $container->register('view', new View()); 
 
         $this->debug($container->get('config')['env']);
-
-        return Router::load('routes.php')
-            ->direct(Request::uri(), Request::method());
     }
     public static function setContainer(Container $container)
     {
@@ -49,5 +47,12 @@ class Application
     {
         if ($env == 'development')
             return Debug::enable();
+    }
+    public function run()
+    {
+        $request = new Request();
+
+        return Router::load('routes.php')
+            ->direct($request->uri(), $request->method());
     }
 }
