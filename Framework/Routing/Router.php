@@ -68,12 +68,24 @@ class Router
 
                 list($controller, $action) = explode("@", $route->getController());
               
-                $controller = "App\\Controller\\{$controller}";
-                $controller = new $controller;
-                return $controller->$action();
+                return $this->matchController($controller, $action);
             }
         }
         throw new Exception("Route {$uri} not found");
+    }
+    public function matchController($controller, $action)
+    {
+        $args = [];
+        $controller = "App\\Controller\\{$controller}";
+        $method = new \ReflectionMethod($controller, $action);
+
+        foreach ($method->getParameters() as $param)
+            $args[] = (string)$param->getType();
+     
+        foreach ($args as $key => $value)
+            $args[$key] = container('request');
+
+        return $method->invokeArgs(new $controller, $args);
     }
     public function setRequest(string $regex, string $path)
     {

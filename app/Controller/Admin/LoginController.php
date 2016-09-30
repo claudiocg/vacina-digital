@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Model\Usuario;
+use Framework\Request;
 
 class LoginController
 {
@@ -10,10 +11,11 @@ class LoginController
     {
         return view('admin.login');
     }
-    public function login()
+    public function login(Request $request)
     {
-        $email = request('email');
-        $senha = request('senha');
+        dd($request->post('email'));
+        $email = $request->post('email');
+        $senha = $request->post('senha');
 
         $usuario = Usuario::select(['id','usuario','senha'])
             ->where('usuario', $email)->get()->first();

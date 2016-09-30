@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Model\Agente;
 use App\Model\Usuario;
+use Framework\Request;
 
 class AgenteController
 {
@@ -39,9 +40,9 @@ class AgenteController
 
         header("location: /agentes");
     }
-    public function show()
+    public function show(Request $request)
     {
-        $agente = Agente::find(request('id'))->usuario();
+        $agente = Agente::find($request->get('id'))->usuario();
 
         return view('agente.show', ['agente' => $agente]);
     }
