@@ -7,6 +7,7 @@ use Framework\Routing\Router;
 use Framework\Database\QueryBuilder;
 use Framework\Database\Connection;
 use Framework\Container;
+use Symfony\Component\Debug\Debug;
 
 class Application
 {
@@ -27,7 +28,9 @@ class Application
             'connection',
             new Connection($container->get('config')['database'])
         );
-        $container->register('view', new View());
+        $container->register('view', new View()); 
+
+        $this->debug($container->get('config')['env']);
 
         return Router::load('routes.php')
             ->direct(Request::uri(), Request::method());
@@ -41,5 +44,10 @@ class Application
         if ($id != NULL)
             return static::$container->get($id);
         return static::$container;
+    }
+    private function debug(string $env)
+    {
+        if ($env == 'development')
+            return Debug::enable();
     }
 }
