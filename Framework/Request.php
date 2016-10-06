@@ -18,4 +18,11 @@ class Request
     {
         return $this->request->query->get($key);
     }
+    public function getMethod()
+    {
+        if (!$this->post('_method')) {
+            return $this->request->getMethod();
+        }
+        return $this->post('_method');
+    }
 }

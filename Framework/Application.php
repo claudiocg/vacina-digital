@@ -51,11 +51,11 @@ class Application
     }
     public function run()
     {
-        $request = $this->container('request')->request;
+        $request = $this->container('request');
 
         return Router::load('routes.php')
             ->direct(
-                trim($request->getRequestUri(),'/'), 
+                trim($request->request->getRequestUri(),'/'), 
                 $request->getMethod());
     }
 }
