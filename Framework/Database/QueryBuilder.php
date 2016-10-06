@@ -126,10 +126,12 @@ class QueryBuilder
 
 		return $this;
 	}
-	public function insert(array $values, string $table)
+	public function insert($values, string $table)
 	{
 		if (empty($values))
 			return true;
+
+		$values = (array)$values;
 
 		$columns = 	implode(",", array_keys($values));
 		$columnized = $this->columnize($values);

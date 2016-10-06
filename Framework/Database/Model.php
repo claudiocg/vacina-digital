@@ -24,7 +24,7 @@ abstract class Model
 		$query = $this->queryBuilder();
 
         // Has register, edit
-        if ($this->getAttribute('id')) {
+        if ($this->hasAttribute('id')) {
             return $query->update((array)$this->getAttributes(), $this->table());
         }
         // Else, insert
@@ -78,6 +78,12 @@ abstract class Model
 	{
 		return $this;
 	}
+    public function hasAttribute($key)
+    {
+        if (isset($this->{$key}))
+            return true;
+        return false;
+    }
 	/**
      * Dynamically retrieve attributes on the model.
      *
