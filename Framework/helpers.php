@@ -50,3 +50,8 @@ if (!function_exists('request')) {
         return Application::container('request')->getRequest($attr);
     }
 }
+if (!function_exists('number')) {
+    function number($value) {
+        return preg_replace('/\D/', '', $value);
+    }
+}
