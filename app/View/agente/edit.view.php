@@ -2,7 +2,7 @@
     
     <h2>Agentes: Editar</h2>
     
-    <form method="POST" action="/agentes/<?= $agente->id; ?>">
+    <form method="POST" action="/agentes">
         <input type="hidden" name="_method" value="PATCH">
         <div class="form-group">
             <label for="nome">Nome</label>

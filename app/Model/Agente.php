@@ -10,14 +10,4 @@ class Agente extends Model
     {
         return $this->hasOne('App\Usuario', 'id', 'id_usuario');
     }
-
-    public function updateAgente(Agente $agente)
-    {
-        $this->save();
-    }
-
-    public function updateUsuario(Usuario $usuario)
-    {
-        $usuario->save();
-    }
 }

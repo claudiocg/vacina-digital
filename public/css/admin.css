@@ -1,0 +1,6 @@
+.no-margin { margin: 0 !important; }
+div#footer {
+  width: 100%;
+  text-align: center;
+  display: block;
+}

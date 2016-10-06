@@ -13,7 +13,6 @@ class LoginController
     }
     public function login(Request $request)
     {
-        dd($request->post('email'));
         $email = $request->post('email');
         $senha = $request->post('senha');
 
@@ -26,7 +25,7 @@ class LoginController
                     'id' => $usuario->id,
                     'nome' => $usuario->usuario
                 ];
-                return redirect("admin.painel");
+                return redirect("admin.agentes");
             }
         }
 
